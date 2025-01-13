@@ -13,13 +13,39 @@ import lombok.Setter;
 public class EmployeeDto {
 
     private Long id;
+    public void setId(Long id){
+        this.id=id;
+    }
+    public Long getId(){
+        return id;
+    }
+
 
 
     private String firstname;
+    public void setfirstname(String firstname){
+        this.firstname=firstname;
+    }
+    public String getfirstname(){
+        return firstname;
+    }
 
     private String lastname;
+    public void setlastname(String lastname){
+        this.lastname=lastname;
+    }
+    public String getlastname(){
+        return lastname;
+    }
+
 
     private String email;
+    public void setemail(String email){
+        this.email=email;
+    }
+    public String getemail(){
+        return email;
+    }
 
 
     public EmployeeDto(Long id, String firstname, String lastname, String email) {

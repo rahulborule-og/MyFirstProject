@@ -16,6 +16,9 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+
+
     public void setId(Long id){
         this.id=id;
     }
@@ -46,4 +49,10 @@ public class Employee {
     public String getemail(){
         return email;
     }
+    public Employee(Long id, String firstname, String lastname,String email){
+        this.id=id;
+        this.firstname=firstname;
+        this.lastname=lastname;
+        this.email=email;
+    };
 }
