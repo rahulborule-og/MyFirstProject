@@ -2,6 +2,7 @@ package com.firstapp.employee_system.service.implementation;
 
 import com.firstapp.employee_system.dto.EmployeeDto;
 import com.firstapp.employee_system.entity.Employee;
+import com.firstapp.employee_system.exceptions.ResourceNotAvailable;
 import com.firstapp.employee_system.mapper.EmployeeEntityMapper;
 import com.firstapp.employee_system.mapper.EmployeeMapper;
 import com.firstapp.employee_system.repository.EmployeeRepository;
@@ -21,5 +22,12 @@ public class CreateEmployee implements EmployeeService {
         Employee savedEmployee=employeeRepository.save(employee);
         return EmployeeMapper.maptoEmployeeDto(employee);
 
+    }
+
+    @Override
+    public EmployeeDto getEmployeeId(Long id) {
+        Employee emp=employeeRepository.findById(id)
+                .orElseThrow(()->new ResourceNotAvailable("Resource is not available"+id));
+        return EmployeeMapper.maptoEmployeeDto(emp);
     }
 }

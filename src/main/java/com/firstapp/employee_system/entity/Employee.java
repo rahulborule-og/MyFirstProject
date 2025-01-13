@@ -55,4 +55,5 @@ public class Employee {
         this.lastname=lastname;
         this.email=email;
     };
+    public Employee(){};
 }
