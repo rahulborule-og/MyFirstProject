@@ -57,5 +57,11 @@ public class EmployeeDto {
     }
 
 
+    public String setemail() {
+        return email;
+    }
 
+    public String setlastname() {
+        return lastname;
+    }
 }

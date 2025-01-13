@@ -42,4 +42,26 @@ public class CreateEmployee implements EmployeeService {
 
         return employeelist.stream().map((employee)->EmployeeMapper.maptoEmployeeDto(employee)).collect(Collectors.toList());
     }
+
+    @Override
+    public EmployeeDto updateEmployee(Long id, EmployeeDto updatedEmployeeDetails) {
+        Employee employee=employeeRepository.findById(id).orElseThrow(()->new ResourceNotAvailable("No resource with this is id"+id));
+        employee.setfirstname(updatedEmployeeDetails.getfirstname());
+        employee.setemail(updatedEmployeeDetails.setemail());
+        employee.setlastname(updatedEmployeeDetails.setlastname());
+
+        Employee updatedemployeeobject=employeeRepository.save(employee);
+        return EmployeeMapper.maptoEmployeeDto(updatedemployeeobject);
+
+
+    }
+
+    @Override
+    public void deleteEmployee(Long id) {
+         Employee e=employeeRepository.findById(id).orElseThrow(()->new ResourceNotAvailable("This resource is not available"+id));
+         employeeRepository.deleteById(id);
+    }
+
+
+
 }
