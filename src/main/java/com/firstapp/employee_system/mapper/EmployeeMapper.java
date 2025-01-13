@@ -7,6 +7,10 @@ import com.firstapp.employee_system.entity.Employee;
 public class EmployeeMapper {
     public static EmployeeDto maptoEmployeeDto(Employee employee){
         return new EmployeeDto(
+                employee.getId(),
+                employee.getfirstname(),
+                employee.getlastname(),
+                employee.getemail()
 
 
 

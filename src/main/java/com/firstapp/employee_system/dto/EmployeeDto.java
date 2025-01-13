@@ -22,5 +22,14 @@ public class EmployeeDto {
     private String email;
 
 
+    public EmployeeDto(Long id, String firstname, String lastname, String email) {
+        this.id=id;
+        this.firstname=firstname;
+        this.lastname=lastname;
+        this.email=email;
+
+    }
+
+
 
 }
