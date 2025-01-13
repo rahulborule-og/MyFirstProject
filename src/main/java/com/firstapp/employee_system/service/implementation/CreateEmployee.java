@@ -56,5 +56,12 @@ public class CreateEmployee implements EmployeeService {
 
     }
 
+    @Override
+    public void deleteEmployee(Long id) {
+         Employee e=employeeRepository.findById(id).orElseThrow(()->new ResourceNotAvailable("This resource is not available"+id));
+         employeeRepository.deleteById(id);
+    }
+
+
 
 }
