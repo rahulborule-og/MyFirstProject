@@ -10,6 +10,11 @@ import com.firstapp.employee_system.service.EmployeeService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
 @AllArgsConstructor
 @Service
 public class CreateEmployee implements EmployeeService {
@@ -29,5 +34,12 @@ public class CreateEmployee implements EmployeeService {
         Employee emp=employeeRepository.findById(id)
                 .orElseThrow(()->new ResourceNotAvailable("Resource is not available"+id));
         return EmployeeMapper.maptoEmployeeDto(emp);
+    }
+
+    @Override
+    public List<EmployeeDto> getAllEmployee() {
+        List<Employee> employeelist=employeeRepository.findAll();
+
+        return employeelist.stream().map((employee)->EmployeeMapper.maptoEmployeeDto(employee)).collect(Collectors.toList());
     }
 }
